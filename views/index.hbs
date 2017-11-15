@@ -7,8 +7,11 @@
   <form method="POST" action="/addBird">
     Name: <input name="name" required/>
     <br>Description: <input name="description"/>
-    <br>Average Eggs: <input name="averageEggs"/>
+    <br>Average Eggs: <input type="number" min="1" max="50" name="averageEggs"/>
     <br>Endangered? <input type="checkbox" name="endangered"/>
+    <br>Nest location: <input name="nestLocation">
+    <br>Nest materials: <input name="nestMaterials">
+    <br>Height in inches: <input name="height"/>
     <br><input type="submit" value="submit">
   </form>
 
