@@ -1,0 +1,30 @@
+<h1>{{bird.name}}</h1>
+
+<div class="bird-info">
+
+  <h2>Description</h2>
+
+  <p>{{bird.description}}</p>
+
+
+  <h2>Average Eggs Laid</h2>
+
+  <p>{{bird.averageEggs}}</p>
+
+
+  <h2>Conservation Status</h2>
+
+  {{#if bird.endangered}}
+    <p>{{bird.name}} is endangered</p>
+  {{else}}
+    <p>{{bird.name}} is not endangered</p>
+  {{/if}}
+
+</div>
+
+
+<div class="dates-seen">
+
+<h2>Dates Seen</h2>
+
+</div>
