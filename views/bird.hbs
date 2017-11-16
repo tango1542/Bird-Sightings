@@ -15,10 +15,7 @@
 
   <p>The {{bird.name}} is {{bird.height}} inches tall</p>
 
-  <form action="/modify" method="POST" class="modify_form">
-    <input type="hidden" name="_id" value="{{bird._id}}">
-    <input class="modify_button" type="submit" name="done" value="Modify Height">
-  </form>
+
 
 
   <h2>Conservation Status</h2>
@@ -36,20 +33,6 @@
 
 </div>
 
-<div class="modal">
-
-  <form method="POST" action="/addBird">
-    Name: <input name="name" required/>
-    <br>Description: <input name="description" value="{{bird.description}}"/>
-    <br>Average Eggs: <input type="number" min="1" max="50" name="averageEggs"/>
-    <br>Endangered? <input type="checkbox" name="endangered"/>
-    <br>Nest location: <input name="nestLocation">
-    <br>Nest materials: <input name="nestMaterials">
-    <br>Height in inches: <input name="height"/>
-    <br><input type="submit" value="submit">
-  </form>
-
-</div>
 
 
 <div class="dates-seen">
@@ -88,14 +71,36 @@
   </div>
   <div class="delete_bird"> <!-- adding a delete button for each bird page so the item can be deleted -->
 
+    <button id="myBtn">Modify Bird Information</button>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <form method="POST" action="/modBird">
+          Name: <input name="name" required value={{bird.name}}>
+          <br>Description: <input name="description" value="{{bird.description}}"/>
+          <br>Average Eggs: <input type="number" min="1" max="50" name="averageEggs" value={{bird.averageEggs}}>
+          <br>Endangered? <input type="checkbox" name="endangered" value={{bird.endangered}}/>
+          <br>Nest location: <input name="nestLocation" value={{bird.nest.nestLocation}}>
+          <br>Nest materials: <input name="nestMaterials" value={{bird.nest.nestMaterials}}>
+          <br>Height in inches: <input name="height" value={{bird.height}}>
+          <br><input type="submit" value="submit">
+        </form>
+      </div>
+
+    </div>
+<br><br>
     <form action="/delete" method="POST" class="delete_form">
       <input type="hidden" name="_id" value="{{bird._id}}">
       <input class="delete_button" type="submit" name="done" value="Delete this Bird">
     </form>
-
+<br>
   </div>
 
 </div>
 
-<script src="javascripts/areyousure.js"></script>
+<script src="/javascripts/areyousure.js"></script>

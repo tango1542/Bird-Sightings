@@ -34,6 +34,11 @@ router.post('/delete', function(req, res, next){
 
 });
 
+router.post('modBird', function(req, res, next) {
+  var bird = Bird.req.body);
+
+
+})
 
 router.post('/addBird', function(req, res, next) {
   var bird = Bird(req.body);
