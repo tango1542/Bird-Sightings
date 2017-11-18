@@ -14,12 +14,12 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/delete', function(req, res, next){
+router.post('/delete', function(req, res, next){    //Delete button is added here
 
   Bird.deleteOne( { _id : req.body._id } )
     .then( (result) => {
 
-      if (result.deletedCount === 1) {  // one task document deleted
+      if (result.deletedCount === 1) {  
         res.redirect('/');
 
       } else {
@@ -34,11 +34,21 @@ router.post('/delete', function(req, res, next){
 
 });
 
-router.post('modBird', function(req, res, next) {
-  var bird = Bird.req.body);
 
+router.post('/modBird', function(req, res, next) {  //New route for the modify button
+  Bird.findOneAndUpdate( {_id: req.body._id}, {$set: {description : "description"}} )  //Just trying to modify the description first for testing purposes, but cannot even update description
+    .then((modifiedBird) => {
+      if (modifiedBird) {   // Name of the document before the update
+        res.redirect('/')  // After the update, redirect to home
+      } else {
+        // if it cannot update the task, get a 404 error
+        res.status(404).send("Error modifying this bird");
+      }
+    }).catch((err) => {
+    next(err);
+  })
 
-})
+});
 
 router.post('/addBird', function(req, res, next) {
   var bird = Bird(req.body);

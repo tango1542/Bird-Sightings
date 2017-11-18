@@ -73,7 +73,7 @@
 
     <button id="myBtn">Modify Bird Information</button>
 
-    <!-- The Modal -->
+    <!-- Modal form added here.  Used W3 schools tutorial for modal. -->
     <div id="myModal" class="modal">
 
       <!-- Modal content -->
@@ -87,14 +87,14 @@
           <br>Endangered? <input type="checkbox" name="endangered" value={{bird.endangered}}/>
           <br>Nest location: <input name="nestLocation" value={{bird.nest.nestLocation}}>
           <br>Nest materials: <input name="nestMaterials" value={{bird.nest.nestMaterials}}>
-          <br>Height in inches: <input name="height" value={{bird.height}}>
+          <br>Height in inches: <input type = "number" name="height" min="1" max="250"value={{bird.height}}>  <!-- Client side validation inside modal here.-->
           <br><input type="submit" value="submit">
         </form>
       </div>
 
     </div>
 <br><br>
-    <form action="/delete" method="POST" class="delete_form">
+    <form action="/delete" method="POST" class="delete_form">   <!-- Delete button is added here -->
       <input type="hidden" name="_id" value="{{bird._id}}">
       <input class="delete_button" type="submit" name="done" value="Delete this Bird">
     </form>
@@ -103,4 +103,4 @@
 
 </div>
 
-<script src="/javascripts/areyousure.js"></script>
+<script src="/javascripts/areyousure.js"></script>  <!--javascript file that contains code to pop up an alert box.-->

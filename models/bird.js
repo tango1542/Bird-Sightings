@@ -34,7 +34,7 @@ var birdSchema = new mongoose.Schema({
     location: String,
     materials: String
   },
-  height: {
+  height: {          //New height field added, with min and max values
     type: Number,
     min: [1, 'The bird needs to be at least 1 inch tall'],
     max: [250, 'The bird cant be more than 250 inches tall'] },
