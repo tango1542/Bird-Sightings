@@ -19,7 +19,7 @@ router.post('/delete', function(req, res, next){    //Delete button is added her
   Bird.deleteOne( { _id : req.body._id } )
     .then( (result) => {
 
-      if (result.deletedCount === 1) {  
+      if (result.deletedCount === 1) {
         res.redirect('/');
 
       } else {
@@ -35,7 +35,8 @@ router.post('/delete', function(req, res, next){    //Delete button is added her
 });
 
 
-router.post('/modBird', function(req, res, next) {  //New route for the modify button
+router.post('/modBird', function(req, res, next) {
+  console.log(req.body)  //New route for the modify button
   Bird.findOneAndUpdate( {_id: req.body._id}, {$set: {description : "description"}} )  //Just trying to modify the description first for testing purposes, but cannot even update description
     .then((modifiedBird) => {
       if (modifiedBird) {   // Name of the document before the update
