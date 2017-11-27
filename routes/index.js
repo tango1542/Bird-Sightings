@@ -37,7 +37,8 @@ router.post('/delete', function(req, res, next){    //Delete button is added her
 
 router.post('/modBird', function(req, res, next) {
   console.log(req.body)  //New route for the modify button
-  Bird.findOneAndUpdate( {_id: req.body._id}, {$set: {description : "description"}} )  //Just trying to modify the description first for testing purposes, but cannot even update description
+  Bird.findOneAndUpdate( {_id: req.body._id}, {$set: {name : req.body.name, description : req.body.description, averageEggs : req.body.averageEggs, endangered : req.body.endangered, nestLocation : req.body.nestLocation, nestMaterials: req.body.nestMaterials, height: req.body.height}})
+
     .then((modifiedBird) => {
       if (modifiedBird) {   // Name of the document before the update
         res.redirect('/')  // After the update, redirect to home
